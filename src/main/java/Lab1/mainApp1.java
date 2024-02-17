@@ -9,5 +9,7 @@ public class mainApp1 {
             System.out.println(b + "to power " + n + " = " + myLibrary.Power(b, n));
             System.out.println(n + "! = " + myLibrary.factorial(n));
             System.out.println("Program ..Ended ...");
+            // add print line for testing
+            System.out.println("Program ..Ended ...");
         }
 }
