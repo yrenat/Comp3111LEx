@@ -1,0 +1,59 @@
+Name: REN Yichen
+ID: 20945775
+
+
+Part1: [Book.java]
+
+package Lab2b;
+
+public class Book {
+    private String chapters[];
+    private static final int DEFAULT_CHAPTERS = 10;
+
+    public Book() {
+        chapters = new String[DEFAULT_CHAPTERS];
+        for (int i = 0; i < chapters.length; i++) {
+            chapters[i] = "n/a";
+        }
+    }
+    public Book(String argument[]) {
+        chapters = argument;
+    }
+    public String getChapter(int i) {
+        return chapters[i];
+    }
+    public String[] getChapters() {
+        return chapters;
+    }
+
+}
+
+
+
+Part2: [MobileComputer.java]
+
+package Lab2c;
+public class MobileComputer extends Computer implements Chargeable{
+    private int battery;
+    public MobileComputer() {
+        secret = "MobileComputer secret";
+        battery = 5;
+    }
+    @Override
+    public void work() {
+        if (battery > 0) {
+            System.out.println("It is working on my lap.");
+            battery--;
+        } else
+            System.out.println("Running out of battery");
+    }
+    @Override
+    public void charge() {
+        if (battery < 10)
+            battery++;
+    }
+
+}
+
+Explanation: 
+The bug is caused by inheritance. In mainApp2c.java, MobileComputer m is being called as Chargeable, while indeed it's not a Chargeable. So I use the keyword "implements" and add "implements chargeable" to MobileComputer to inherit all members and methods from its parent class Chargeable. After that, the polymorphism can be performed correctly. 
